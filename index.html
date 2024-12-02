@@ -8,7 +8,7 @@
         :root {
             --neon-purple: #00E699;
             --neon-secondary: #00C5C5;
-            --background-dark: #1A1A1A;
+            --background-dark: #000000;
         }
 
         * {
@@ -19,7 +19,7 @@
         }
 
         body {
-            background: #0A0A0A;
+            background: #000000;
             color: #ffffff;
         }
 
@@ -227,7 +227,7 @@
 
         .trusted-by {
             padding: 6rem 4rem;
-            background: #0A0A0A;
+            background: #000000;
         }
 
         .trusted-by-container {
@@ -337,7 +337,7 @@
         }
 
         .code-integration {
-            background: #0A0A0A;
+            background: #000000;
             padding: 6rem 4rem;
         }
 
@@ -494,6 +494,85 @@
                 padding-bottom: 0.5rem;
             }
         }
+
+        .lightning-fast-section {
+            background: #000000;
+            margin-top: 500px;
+            padding: 6rem 4rem;
+            color: white;
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50rem;
+            object-fit: scale-down;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .lightning-fast-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .speed-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        .lightning-phone-display {
+            overflow: hidden;
+            margin-left: 20px;
+            margin-top: 300px;
+        }
+
+        .popup-video {
+            width: 80%;
+            height: 85%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightning-driver-link {
+            color: #00E699;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightning-driver-link:hover {
+            opacity: 0.8;
+        }
+
+        .modern-workflows {
+            padding: 4rem 2rem;
+            background: #000000;
+        }
+
+        .workflow-card {
+            transition: transform 0.3s ease;
+        }
+
+        .workflow-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -589,13 +668,45 @@
                 </div>
                 <pre class="code-content"><code><span class="import">import</span> { <span class="var">neon</span> } <span class="import">from</span> <span class="string">'@neondatabase/serverless'</span>;
 
-<span class="export">export</span> <span class="async">async</span> <span class="function">function</span> <span class="get">GET</span>() {
-    <span class="const">const</span> <span class="var">sql</span> = <span class="var">neon</span>(<span class="var">process</span>.<span class="var">env</span>.<span class="var">DATABASE_URL</span>);
+        <span class="export">export</span> <span class="async">async</span> <span class="function">function</span> <span class="get">GET</span>() {
+            <span class="const">const</span> <span class="var">sql</span> = <span class="var">neon</span>(<span class="var">process</span>.<span class="var">env</span>.<span class="var">DATABASE_URL</span>);
 
-    <span class="const">const</span> <span class="var">rows</span> = <span class="await">await</span> <span class="var">sql</span>(<span class="string">"SELECT * FROM posts"</span>);
+            <span class="const">const</span> <span class="var">rows</span> = <span class="await">await</span> <span class="var">sql</span>(<span class="string">"SELECT * FROM posts"</span>);
 
-    <span class="return">return</span> <span class="var">Response</span>.<span class="var">json</span>({ <span class="var">rows</span> })
-}</code></pre>
+            <span class="return">return</span> <span class="var">Response</span>.<span class="var">json</span>({ <span class="var">rows</span> })
+        }</code></pre>
+                    </div>
+                </div>
+    </section>
+
+    <section class="lightning-fast-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="assets/idle.mp4" type="video/mp4">
+        </video>
+        
+        <div class="lightning-fast-content">
+            <div class="lightning-text-content">
+                <h2 class="lightning-title" style="font-size: 4rem; font-weight: bold; color: white; margin-bottom:20rem;padding-bottom:1px;">
+                    <span>Lightning fast.<br>Edge ready</span>
+                </h2>
+                
+                <div class="lightning-metrics" style="display: flex; align-items: center; margin-top: 1rem;">
+                    <div class="lightning-speed-metric" style="font-size: 3rem; color: #00E699;">
+                        <span class="lightning-number">10</span>
+                        <span class="lightning-unit" style="font-size: 1.5rem;">ms</span>
+                    </div>
+                    <p class="speed-description" style="margin-left: 1rem; color: rgba(255, 255, 255, 0.7);">Average query latency</p>
+                </div>
+
+                <p class="lightning-description" style="margin-top: 1rem; color: rgba(255, 255, 255, 0.9);">The Neon serverless driver, designed<br>for fast queries over HTTP</p>
+
+                <a href="#" class="lightning-driver-link" style="font-size: 1.2rem; color: #00E699; text-decoration: underline;">Get the Serverless Driver →</a>
+            </div>
+
+            <div class="lightning-phone-display">
+                <video autoplay loop muted playsinline class="popup-video">
+                    <source src="assets/popup.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
