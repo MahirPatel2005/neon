@@ -197,6 +197,7 @@
             display: flex;
             gap: 1rem;
             align-items: center;
+            margin-right: 30px;
         }
 
         .sign-in {
@@ -573,6 +574,56 @@
         .workflow-card:hover {
             transform: translateY(-5px);
         }
+        . better-database{
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        .header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 40px;
+        line-height: 1.2;
+        }
+
+        .better-database-grid {
+            height: 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .better-database-grid {
+        padding: 20px;
+        border-radius: 12px;
+        text-align: left;
+        background: linear-gradient(145deg, #121212, #1f1f1f);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .better-database-primary {
+        grid-column: span 2;
+        background: linear-gradient(145deg, #2d2d2d, #3a3a3a);
+        color: #87ceeb;
+        }
+
+        .better-database-grid h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        }
+
+        .better-database-grid p {
+        font-size: 1rem;
+        line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+        .feature-primary {
+            grid-column: span 1;
+        }
+        }
     </style>
 </head>
 <body>
@@ -710,5 +761,24 @@
             </div>
         </div>
     </section>
+    <div class="better-database">
+        <header class="header">
+          <h1>Better database. <br> For modern workflows.</h1>
+        </header>
+        <div class="better-database-grid">
+          <div class="better-database-primary">
+            <h2>Boost your performance with instant read replicas.</h2>
+            <p>They scale down to zero when idle and don’t use additional storage.</p>
+          </div>
+          <div class="better-database-secondary">
+            <h2>Easy database ops via the API and CLI.</h2>
+            <p>Manage thousands of databases programmatically.</p>
+          </div>
+          <div class="better-database-secondary">
+            <h2>Instant Point-in-time recovery.</h2>
+            <p>Up to 30 days granularity down to the transaction or second.</p>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
