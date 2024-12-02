@@ -335,6 +335,165 @@
         @keyframes cursor {
             50% { border-color: transparent }
         }
+
+        .code-integration {
+            background: #0A0A0A;
+            padding: 6rem 4rem;
+        }
+
+        .code-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .code-text {
+            flex: 0 0 40%;
+        }
+
+        .code-text h2 {
+            font-size: 4rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .see-examples {
+            color: var(--neon-purple);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .see-examples:hover {
+            opacity: 0.8;
+        }
+
+        .code-editor {
+            flex: 1;
+            background: #1A1A1A;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .editor-header {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .language-tabs {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .tab {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .code-content {
+            padding: 2rem;
+            margin: 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #fff;
+            background: none;
+        }
+
+        /* Syntax highlighting */
+        .code-content .import {
+            color: #9D7CD8;
+        }
+
+        .code-content .export {
+            color: #9D7CD8;
+        }
+
+        .code-content .async {
+            color: #9D7CD8;
+        }
+
+        .code-content .function {
+            color: #9D7CD8;
+        }
+
+        .code-content .const {
+            color: #9D7CD8;
+        }
+
+        .code-content .return {
+            color: #9D7CD8;
+        }
+
+        .code-content .await {
+            color: #9D7CD8;
+        }
+
+        .code-content .get {
+            color: #7EE787;
+        }
+
+        .code-content .var {
+            color: #79C0FF;
+        }
+
+        .code-content .string {
+            color: #A5D6FF;
+        }
+
+        @media (max-width: 1200px) {
+            .code-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .code-text {
+                flex: none;
+            }
+
+            .code-text p {
+                margin: 0 auto 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .code-integration {
+                padding: 4rem 2rem;
+            }
+            
+            .code-text h2 {
+                font-size: 3rem;
+            }
+            
+            .language-tabs {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -402,10 +561,41 @@
     <section class="trusted-by">
         <div class="trusted-by-container">
             <div class="trusted-by-text">
-                <h2>Trusted in production<br>by thousands of teams.</h2>
+                <h2>Instant<br>provisioning</h2><br>No waiting. No config
             </div>
             <div class="text-container">
                 <p class="text">postgresql://example@ep-938132.eu-central-1.aws.neon.tech/primary</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="code-integration">
+        <div class="code-container">
+            <div class="code-text">
+                <h2>Works with<br>your stack</h2>
+                <p>Integrate it into your language or framework within minutes and unlock a simpler developer workflow.</p>
+                <a href="#" class="see-examples">See all examples →</a>
+            </div>
+            <div class="code-editor">
+                <div class="editor-header">
+                    <div class="language-tabs">
+                        <span class="tab active">Next.js</span>
+                        <span class="tab">Drizzle</span>
+                        <span class="tab">Prisma</span>
+                        <span class="tab">Python</span>
+                        <span class="tab">Ruby</span>
+                        <span class="tab">Rust</span>
+                    </div>
+                </div>
+                <pre class="code-content"><code><span class="import">import</span> { <span class="var">neon</span> } <span class="import">from</span> <span class="string">'@neondatabase/serverless'</span>;
+
+<span class="export">export</span> <span class="async">async</span> <span class="function">function</span> <span class="get">GET</span>() {
+    <span class="const">const</span> <span class="var">sql</span> = <span class="var">neon</span>(<span class="var">process</span>.<span class="var">env</span>.<span class="var">DATABASE_URL</span>);
+
+    <span class="const">const</span> <span class="var">rows</span> = <span class="await">await</span> <span class="var">sql</span>(<span class="string">"SELECT * FROM posts"</span>);
+
+    <span class="return">return</span> <span class="var">Response</span>.<span class="var">json</span>({ <span class="var">rows</span> })
+}</code></pre>
             </div>
         </div>
     </section>
