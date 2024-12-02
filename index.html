@@ -24,7 +24,7 @@
         }
 
         .hero {
-            min-height: 100vh;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,7 +67,7 @@
             background: var(--neon-purple);
             border-radius: 100px;
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #000000;
             font-size: 1.2rem;
             font-weight: bold;
             cursor: grab;
@@ -98,49 +98,38 @@
             animation: show 0.5s ease forwards;
             color: black;
         }
-
-        .cta-button:nth-child(1):hover:after {
-            box-shadow: 0 0 15px #ff0171, 0 0 30px #ff0171;
-            background: #ff0171;
-            color: black;
-        }
-
-        .cta-button:nth-child(2):hover:after {
-            box-shadow: 0 0 15px #017bff, 0 0 30px #017bff;
-            background: #017bff;
-            color: black;
-        }
-
         .cta-button:nth-child(3):hover:after {
             box-shadow: 0 0 15px #00ff8444, 0 0 30px #00ff8454;
             background: #4d4b0515;
             color: black;
         }
-        @keyframes show {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) scaleY(0);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) scaleY(1);
-            }
-        }
         .features {
-            padding: 4rem 2rem;
+            padding: 6rem 4rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 4rem;
+            max-width: 1800px;
             margin: 0 auto;
+            height: auto;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 2.5rem;
-            border-radius: 16px;
+            height: auto;
+            background-image: none;
+            padding: 4rem;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 3rem;
         }
 
         .feature-card:hover {
@@ -150,10 +139,21 @@
 
         .feature-card h3 {
             color: var(--neon-purple);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
 
+        .feature-card p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .ftrcardimg{
+            height: 20rem;
+            padding-right: 10px;
+        }
         .navbar {
             position: fixed;
             top: 0;
@@ -224,6 +224,117 @@
         .hero {
             padding-top: 5rem;
         }
+
+        .trusted-by {
+            padding: 6rem 4rem;
+            background: #0A0A0A;
+        }
+
+        .trusted-by-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .trusted-by-text {
+            flex: 0 0 40%;
+        }
+
+        .trusted-by h2 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: white;
+            max-width: 600px;
+        }
+
+        .logo-grid {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-row img {
+            width: 100%;
+            height: auto;
+            max-width: 160px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-row img:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .trusted-by-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trusted-by-text {
+                flex: none;
+            }
+
+            .trusted-by h2 {
+                margin: 0 auto 2rem;
+            }
+
+            .logo-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trusted-by {
+                padding: 4rem 2rem;
+            }
+            
+            .trusted-by h2 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-row img {
+                max-width: 120px;
+            }
+        }
+
+        .text {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--neon-purple);
+            border-right: 4px solid;
+            width: 0;  /* Start with width 0 */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: 
+                typing 4s steps(63) forwards,  /* Added 'forwards' to maintain final state */
+                cursor .4s step-end infinite alternate;
+        }
+
+        @keyframes typing {
+            from { 
+                width: 0 
+            }
+            to { 
+                width: 100%  /* Changed to percentage for better responsiveness */
+            }
+        }
+
+        @keyframes cursor {
+            50% { border-color: transparent }
+        }
     </style>
 </head>
 <body>
@@ -258,12 +369,44 @@
 
     <section class="features">
         <div class="feature-card">
+            <img src="assets/1.png" alt="Scaling">
             <h3>Scaling</h3>
             <p>Focus on building applications with time and money-saving features like instant provisioning, autoscaling according to load, and scale to zero.</p>
         </div>
         <div class="feature-card">
+            <img src="assets/2.png" alt="Branching">
             <h3>Branching</h3>
             <p>Instantly branch your data and schema to access isolated DB copies for development, CI/CD, and schema migrations with copy-on-write storage.</p>
+        </div>
+    </section>
+
+    <section class="trusted-by">
+        <div class="trusted-by-container">
+            <div class="trusted-by-text">
+                <h2>Trusted in production<br>by thousands of teams.</h2>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-row">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNmZmYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBjbGFzcz0ic2l6ZS0xMCIgdmlld0JveD0iLTUgMCA0NSAyMCI+PHBhdGggZD0iTTIzLjM5MiAwaDkuNTI3YTYuOTk1IDYuOTk1IDAgMCAxIDYuOTk1IDYuOTk1djkuMDg2SDM2VjYuOTk1cTAtLjE0LS4wMTEtLjI3N2wtOS41MjcgOS4zNjEuMDk2LjAwMmg5LjQ0MnYzLjY5NUgyNi41NmMtMy44NjQgMC03LjA4MS0zLjE2Mi03LjA4MS03LjAyNVYzLjY4OWgzLjkxM3Y5LjA2MnEwIC4yNjIuMDQuNTE2TDMzLjE2OCAzLjdhMyAzIDAgMCAwLS4yNS0uMDFoLTkuNTI2ek0xMy43NjkgMTkuMDk2IDAgMy42ODhoNS41NGw4LjA4MyA5LjA0NlYzLjY4OGg0LjEzdjEzLjg4N2MwIDIuMDk2LTIuNTg4IDMuMDgzLTMuOTg0IDEuNTIiLz48L3N2Zz4=" alt="Viz Logo">
+                    <img src="https://neon.tech/_next/static/svgs/7f02b9671daf78d29a1aff9900c27428.svg" alt="Zimmer Biomet Logo">
+                    <img src="https://neon.tech/_next/static/svgs/842ddcaa4e6f4b86b971d2b0fa22aadb.svg" alt="Retool Logo">
+                </div>
+                <div class="logo-row">
+                    <img src="https://neon.tech/_next/static/svgs/0ec024e581a9ad1a8fd4067237130f92.svg" alt="BCG Logo">
+                    <img src="https://neon.tech/_next/static/svgs/4832eacc0278c4c1e2d04b67ecac22e4.svg" alt="Nerdwallet Logo">
+                    <img src="https://neon.tech/_next/static/svgs/47af9af88dba7fc8c03f415de8426d1a.svg" alt="Mistral AI Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="trusted-by">
+        <div class="trusted-by-container">
+            <div class="trusted-by-text">
+                <h2>Trusted in production<br>by thousands of teams.</h2>
+            </div>
+            <div class="text-container">
+                <p class="text">postgresql://example@ep-938132.eu-central-1.aws.neon.tech/primary</p>
+            </div>
         </div>
     </section>
 </body>
