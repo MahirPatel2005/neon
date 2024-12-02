@@ -624,6 +624,50 @@
             grid-column: span 1;
         }
         }
+        footer {
+        background: #000000;
+        padding: 20px;
+        font-size: 0.9rem;
+        }
+
+        .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+
+        .footer-logo p {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        margin-left: 400px;
+        font-size: large;
+        }
+
+        .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        
+        }
+
+        .footer-links div {
+        margin-right: 20px;
+        }
+
+        .footer-links h4 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+        margin-bottom: 5px;
+        margin-right: 100px;
+        }
+
+        .footer-links ul li:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -780,5 +824,60 @@
           </div>
         </div>
       </div>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-logo">
+            <p>NEON</p>
+            <p>All systems operational</p>
+            <p>Made in SF and the World<br>&copy; 2022 - 2024 Neon, Inc.</p>
+          </div>
+          <div class="footer-links">
+            <div class="company">
+              <h4>Company</h4>
+              <ul>
+                <li>About</li>
+                <li>Blog</li>
+                <li>Careers</li>
+                <li>Contact Sales</li>
+                <li>Partners</li>
+                <li>Security</li>
+                <li>Legal</li>
+              </ul>
+            </div>
+            <div class="resources">
+              <h4>Resources</h4>
+              <ul>
+                <li>Docs</li>
+                <li>Changelog</li>
+                <li>Support</li>
+                <li>Community Guides</li>
+                <li>PostgreSQL Tutorial</li>
+                <li>Creators</li>
+              </ul>
+            </div>
+            <div class="social">
+              <h4>Social</h4>
+              <ul>
+                <li>Discord</li>
+                <li>GitHub</li>
+                <li>X.com</li>
+                <li>LinkedIn</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
+            <div class="compliance">
+              <h4>Compliance</h4>
+              <ul>
+                <li>CCPA Compliant</li>
+                <li>GDPR Compliant</li>
+                <li>ISO 27001 Certified</li>
+                <li>ISO 27701 Certified</li>
+                <li>SOC 2 Certified</li>
+                <li>HIPAA (In Progress)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
