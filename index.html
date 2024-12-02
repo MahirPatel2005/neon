@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon - Serverless Postgres</title>
+    <style>
+        :root {
+            --neon-purple: #00E699;
+            --neon-secondary: #00C5C5;
+            --background-dark: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: #0A0A0A;
+            color: #ffffff;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: var(--background-dark);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 230, 153, 0.15), transparent 70%);
+            z-index: 0;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-purple);
+        }
+
+        .feature-card h3 {
+            color: var(--neon-purple);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding-right: 1000px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .sign-in {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .console-btn {
+            padding: 0.5rem 1rem;
+            background: var(--neon-purple);
+            color: black;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .console-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Adjust hero section to account for navbar */
+        .hero {
+            padding-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4L3 9L12 14L21 9L12 4Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M3 14L12 19L21 14" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            neon
+        </a>
+        
+        <div class="nav-links">
+            <a href="#">Product</a>
+            <a href="#">Docs</a>
+            <a href="#">Pricing</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="#" class="sign-in">Sign in</a>
+            <a href="#" class="console-btn">Console</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Ship faster with Postgres</h1>
+        <p>The database you love, on a serverless platform designed to help you build reliable and scalable applications faster.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Scaling</h3>
+            <p>Focus on building applications with time and money-saving features like instant provisioning, autoscaling according to load, and scale to zero.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Branching</h3>
+            <p>Instantly branch your data and schema to access isolated DB copies for development, CI/CD, and schema migrations with copy-on-write storage.</p>
+        </div>
+    </section>
+</body>
+</html>
