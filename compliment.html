@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Form Data in Local Storage</title>
+  <style>
+    form {
+      max-width: 300px;
+      margin: 20px auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Select the form
+    const form = document.getElementById('userForm');
+
+    // Add event listener to handle form submission
+    form.addEventListener('submit', (event) => {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get values from the form
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      // Store the values in local storage
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+
+      // Optionally, show a confirmation message
+      alert('Data saved to local storage!');
+    });
+  </script>
+</body>
+</html>
