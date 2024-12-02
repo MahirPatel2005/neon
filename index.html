@@ -61,23 +61,71 @@
             margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
         }
-
         .cta-button {
-            padding: 1rem 2rem;
+            position: relative;
+            padding: 15px 30px;
+            background: var(--neon-purple);
+            border-radius: 100px;
+            backdrop-filter: blur(10px);
+            color: #ffffff;
             font-size: 1.2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
+            font-weight: bold;
+            cursor: grab;
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .cta-button:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -5px;
+            width: 30px;
+            height: 5px;
+            background: #ff016f21;
+            border-radius: 10px;
+            transition: 0.5s;
+            opacity: dark;
+            color: black;
         }
 
+        .cta-button:hover:after {
+            top: 0;
+            height: 100%;
+            width: 80%;
+            border-radius: 30px;
+            opacity: 1;
+            animation: show 0.5s ease forwards;
+            color: black;
+        }
+
+        .cta-button:nth-child(1):hover:after {
+            box-shadow: 0 0 15px #ff0171, 0 0 30px #ff0171;
+            background: #ff0171;
+            color: black;
+        }
+
+        .cta-button:nth-child(2):hover:after {
+            box-shadow: 0 0 15px #017bff, 0 0 30px #017bff;
+            background: #017bff;
+            color: black;
+        }
+
+        .cta-button:nth-child(3):hover:after {
+            box-shadow: 0 0 15px #00ff8444, 0 0 30px #00ff8454;
+            background: #4d4b0515;
+            color: black;
+        }
+        @keyframes show {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) scaleY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scaleY(1);
+            }
+        }
         .features {
             padding: 4rem 2rem;
             display: grid;
